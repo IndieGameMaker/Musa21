@@ -21,6 +21,8 @@ public class TouchMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ray = camera.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(ray.origin, ray.direction * 10.0f, Color.green);
         
     }
 }
