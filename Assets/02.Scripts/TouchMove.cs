@@ -12,7 +12,8 @@ public class TouchMove : MonoBehaviour
     private Camera camera;
 
     public Vector3 movePos = Vector3.zero;
-    public float damping = 2.0f;
+    public float damping = 10.0f;
+    public float moveSpeed = 5.0f;
 
     void Start()
     {
@@ -40,6 +41,7 @@ public class TouchMove : MonoBehaviour
             Quaternion rot = Quaternion.LookRotation(dir);
             //각도를 Slerp 적용
             tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * damping);
+            tr.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
         }
     }
 }

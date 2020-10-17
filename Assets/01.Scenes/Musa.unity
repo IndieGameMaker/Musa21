@@ -317,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2265568681403064217, guid: 9652fa9d8b41e42339bc5194ddbaf587, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2265568681403064217, guid: 9652fa9d8b41e42339bc5194ddbaf587, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -411,6 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1193e5978d2b34f168aeac33adab6ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePos: {x: 0, y: 0, z: 0}
+  damping: 10
 --- !u!1 &788275010
 GameObject:
   m_ObjectHideFlags: 0
