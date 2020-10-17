@@ -47,6 +47,12 @@ public class TouchMove : MonoBehaviour
             //각도를 Slerp 적용
             tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * damping);
             tr.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
+
+            anim.SetBool(hashIsRun, true);
+        }
+        else
+        {
+            anim.SetBool(hashIsRun, false);
         }
     }
 }
