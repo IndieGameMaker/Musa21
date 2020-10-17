@@ -12,6 +12,7 @@ public class TouchMove : MonoBehaviour
     private Camera camera;
 
     public Vector3 movePos = Vector3.zero;
+    public float damping = 2.0f;
 
     void Start()
     {
@@ -35,8 +36,8 @@ public class TouchMove : MonoBehaviour
         Vector3 dir = movePos - tr.position;  //벡터의 뺄셈 연산
         //벡터가 이루고 있는 쿼터니언 각도를 계산
         Quaternion rot = Quaternion.LookRotation(dir);
-        //각도를 적용
-        tr.rotation = rot;
+        //각도를 Slerp 적용
+        tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * damping);
 
     }
 }
