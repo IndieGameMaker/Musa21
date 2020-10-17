@@ -21,6 +21,8 @@ public class TouchMove : MonoBehaviour
     void Start()
     {
         tr = GetComponent<Transform>();
+        anim = GetComponent<Animator>();
+
         floorLayer = LayerMask.NameToLayer("FLOOR");
         camera = Camera.main;  //"MainCamera" 태그가 설정된 카메라를 리턴
     }
