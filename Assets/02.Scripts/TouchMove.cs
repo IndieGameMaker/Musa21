@@ -15,6 +15,9 @@ public class TouchMove : MonoBehaviour
     public float damping = 10.0f;
     public float moveSpeed = 5.0f;
 
+    private Animator anim;
+    private int hashIsRun = Animator.StringToHash("IsRun");
+
     void Start()
     {
         tr = GetComponent<Transform>();
