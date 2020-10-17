@@ -11,6 +11,8 @@ public class TouchMove : MonoBehaviour
     private int floorLayer;
     private Camera camera;
 
+    public Vector3 movePos = Vector3.zero;
+
     void Start()
     {
         tr = GetComponent<Transform>();
@@ -23,6 +25,18 @@ public class TouchMove : MonoBehaviour
     {
         ray = camera.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * 10.0f, Color.green);
-        
+
+        if (Input.GetMouseButtonDown(0)
+            && Physics.Raycast(ray, out hit, 50.0f, 1<<floorLayer))
+        {
+            movePos = hit.point;
+        }
+
+        Vector3 dir = movePos - tr.position;  //벡터의 뺄셈 연산
+        //벡터가 이루고 있는 쿼터니언 각도를 계산
+        Quaternion rot = Quaternion.LookRotation(dir);
+        //각도를 적용
+        tr.rotation = rot;
+
     }
 }
